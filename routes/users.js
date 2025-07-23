@@ -19,7 +19,6 @@ const userDto = require('../schemas/users')
 const dboperations = require('../controllers/users')
 
 router.use(pubip().getIpInfoMiddleware)
-router.all('*', authlimiter)
 
 /**
  * @swagger
@@ -115,7 +114,7 @@ router.all('*', authlimiter)
  *                     error:
  *                      message: Please enter proper credentials
  */
-router.post('/login', dboperations.user_auth)
+router.post('/login', authlimiter, dboperations.user_auth)
 
 /**
  * @swagger
@@ -220,7 +219,14 @@ router.post(
  *                         PermissionLvl: Standard
  *                         Username: kpiercy
  */
-router.get('/me', authenticateToken, authAccess, authIP, dboperations.find_me)
+router.get(
+    '/me',
+    authlimiter, 
+    authenticateToken,
+    authAccess,
+    authIP,
+    dboperations.find_me
+)
 
 /**
  * @swagger
@@ -282,7 +288,14 @@ router.get('/me', authenticateToken, authAccess, authIP, dboperations.find_me)
  *           type: integer
  *           example: 9999
  */
-router.get('/', authenticateToken, authAccess, authIP, dboperations.find_users)
+router.get(
+    '/',
+    authlimiter,
+    authenticateToken,
+    authAccess,
+    authIP,
+    dboperations.find_users
+)
 
 /**
  * @swagger
@@ -341,6 +354,7 @@ router.get('/', authenticateToken, authAccess, authIP, dboperations.find_users)
  */
 router.get(
     '/:userid',
+    authlimiter,
     authenticateToken,
     authLvl,
     authAccess,
@@ -466,6 +480,7 @@ router.get(
  */
 router.post(
     '/',
+    authlimiter,
     authenticateToken,
     authAccess,
     authIP,
@@ -521,6 +536,7 @@ router.post(
  */
 router.patch(
     '/:userid',
+    authlimiter,
     authenticateToken,
     authLvl,
     authAccess,
@@ -585,6 +601,7 @@ router.patch(
  */
 router.delete(
     '/',
+    authlimiter,
     authenticateToken,
     authLvl,
     authAccess,
@@ -653,6 +670,7 @@ router.delete(
  */
 router.delete(
     '/:userid',
+    authlimiter,
     authenticateToken,
     authAccess,
     authIP,
