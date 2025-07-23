@@ -1,10 +1,10 @@
 import { Box, IconButton, useTheme } from "@mui/material";
 import React, { useContext } from "react";
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { useLogout } from '../../../hooks/useLogout'
+import { useLogout } from '../../../hooks/useLogout.jsx'
 // import { useSettings } from '../../../hooks/useSettings'
-import { useAuthContext } from '../../../hooks/useAuthContext'
-import { ColorModeContext, tokens } from "../../../theme";
+import { useAuthContext } from '../../../hooks/useAuthContext.jsx'
+import { ColorModeContext, tokens } from "../../../theme.jsx";
 import InputBase from "@mui/material/InputBase";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";

@@ -2,8 +2,8 @@ import { Box, Button, TextField } from '@mui/material'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import * as yup from 'yup'
 import useMediaQuery from '@mui/material/useMediaQuery'
-import Header from '../ui/global/Header'
-import { useAuthContext } from '../../hooks/useAuthContext'
+import Header from '../ui/global/Header.jsx'
+import { useAuthContext } from '../../hooks/useAuthContext.jsx'
 
 const userSchema = 
     yup.object().shape({
