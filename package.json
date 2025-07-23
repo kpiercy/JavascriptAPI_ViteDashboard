@@ -46,7 +46,7 @@
     "glob-parent": "^5.1.2",
     "got": ">=11.8.5",
     "latest-version": ">=5.1.1",
-    "nodemon": "^2.0.18",
+    "nodemon": "^2.0.22",
     "package-json": ">=6.5.1",
     "update-notifier": ">=6.0.2",
     "webpack": "^5.76.0",
